@@ -1,0 +1,14 @@
+C:\Users\User\source\repos\UI\UI\bin\Debug\UI.exe.config
+C:\Users\User\source\repos\UI\UI\bin\Debug\UI.exe
+C:\Users\User\source\repos\UI\UI\bin\Debug\UI.pdb
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.csprojAssemblyReference.cache
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.Form1.resources
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.Properties.Resources.resources
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.csproj.GenerateResource.cache
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.exe
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.pdb
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.Form2.resources
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.Form3.resources
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.Form4.resources
+C:\Users\User\source\repos\UI\UI\obj\Debug\UI.Form5.resources
