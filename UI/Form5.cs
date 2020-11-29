@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form5 : Form
+    public partial class Limits : Form
     {
-        public Form5()
+        public Limits()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form3
+    partial class ActivityHistory
     {
         /// <summary>
         /// Required designer variable.
@@ -131,7 +131,7 @@
             this.button2.Text = "Вернуться на главную страницу";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Form3
+            // ActivityHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,8 +146,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "ActivityHistory";
+            this.Text = "История операций";
             this.ResumeLayout(false);
             this.PerformLayout();
 

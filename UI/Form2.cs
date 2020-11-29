@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form2 : Form
+    public partial class CurrencyExchange : Form
     {
-        public Form2()
+        public CurrencyExchange()
         {
             InitializeComponent();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form4 : Form
+    public partial class RateOfExchange : Form
     {
-        public Form4()
+        public RateOfExchange()
         {
             InitializeComponent();
         }

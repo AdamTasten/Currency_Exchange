@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Form3 : Form
+    public partial class ActivityHistory : Form
     {
-        public Form3()
+        public ActivityHistory()
         {
             InitializeComponent();
         }

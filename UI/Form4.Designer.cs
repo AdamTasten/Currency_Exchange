@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form4
+    partial class RateOfExchange
     {
         /// <summary>
         /// Required designer variable.
@@ -184,7 +184,7 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "BYN";
             // 
-            // Form4
+            // RateOfExchange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -205,8 +205,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form4";
-            this.Text = "Form4";
+            this.Name = "RateOfExchange";
+            this.Text = "Курсы валют";
             this.ResumeLayout(false);
             this.PerformLayout();
 

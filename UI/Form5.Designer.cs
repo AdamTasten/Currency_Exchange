@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form5
+    partial class Limits
     {
         /// <summary>
         /// Required designer variable.
@@ -129,7 +129,7 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Form5
+            // Limits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,8 +144,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form5";
-            this.Text = "Form5";
+            this.Name = "Limits";
+            this.Text = "Лимиты на обмен";
             this.ResumeLayout(false);
             this.PerformLayout();
 

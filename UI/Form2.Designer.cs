@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form2
+    partial class CurrencyExchange
     {
         /// <summary>
         /// Required designer variable.
@@ -194,7 +194,7 @@
             this.button2.Text = "Вернуться на главную страницу";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // Form2
+            // CurrencyExchange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -215,8 +215,8 @@
             this.Controls.Add(this.USD);
             this.Controls.Add(this.radioButton6);
             this.Controls.Add(this.radioButton1);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "CurrencyExchange";
+            this.Text = "Обмен валюты";
             this.ResumeLayout(false);
             this.PerformLayout();
 

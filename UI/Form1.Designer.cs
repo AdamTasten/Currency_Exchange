@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class Form1
+    partial class MainMenu
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -33,13 +33,13 @@
             this.setLimits = new System.Windows.Forms.Button();
             this.setRateOfExchange = new System.Windows.Forms.Button();
             this.setNextDay = new System.Windows.Forms.Button();
-            this.Date = new System.Windows.Forms.TextBox();
+            this.dateField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.passField = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.enterAdmin = new System.Windows.Forms.Button();
+            this.exitAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exchangeCurrency
@@ -88,12 +88,12 @@
             this.setNextDay.Text = "Перейти на следующий день";
             this.setNextDay.UseVisualStyleBackColor = true;
             // 
-            // Date
+            // dateField
             // 
-            this.Date.Location = new System.Drawing.Point(329, 32);
-            this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(152, 22);
-            this.Date.TabIndex = 5;
+            this.dateField.Location = new System.Drawing.Point(329, 32);
+            this.dateField.Name = "dateField";
+            this.dateField.Size = new System.Drawing.Size(152, 22);
+            this.dateField.TabIndex = 5;
             // 
             // label1
             // 
@@ -105,12 +105,12 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "ДД.ММ.ГГГГ";
             // 
-            // textBox7
+            // passField
             // 
-            this.textBox7.Location = new System.Drawing.Point(67, 37);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 22);
-            this.textBox7.TabIndex = 15;
+            this.passField.Location = new System.Drawing.Point(67, 37);
+            this.passField.Name = "passField";
+            this.passField.Size = new System.Drawing.Size(100, 22);
+            this.passField.TabIndex = 15;
             // 
             // label7
             // 
@@ -131,43 +131,43 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Режим администратора";
             // 
-            // button1
+            // enterAdmin
             // 
-            this.button1.Location = new System.Drawing.Point(70, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 26);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Включить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.enterAdmin.Location = new System.Drawing.Point(70, 82);
+            this.enterAdmin.Name = "enterAdmin";
+            this.enterAdmin.Size = new System.Drawing.Size(93, 26);
+            this.enterAdmin.TabIndex = 17;
+            this.enterAdmin.Text = "Включить";
+            this.enterAdmin.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // exitAdmin
             // 
-            this.button2.Location = new System.Drawing.Point(38, 135);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 58);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Выйти из режима администратора";
-            this.button2.UseVisualStyleBackColor = true;
+            this.exitAdmin.Location = new System.Drawing.Point(38, 135);
+            this.exitAdmin.Name = "exitAdmin";
+            this.exitAdmin.Size = new System.Drawing.Size(151, 58);
+            this.exitAdmin.TabIndex = 18;
+            this.exitAdmin.Text = "Выйти из режима администратора";
+            this.exitAdmin.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.exitAdmin);
+            this.Controls.Add(this.enterAdmin);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.passField);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Date);
+            this.Controls.Add(this.dateField);
             this.Controls.Add(this.setNextDay);
             this.Controls.Add(this.setRateOfExchange);
             this.Controls.Add(this.setLimits);
             this.Controls.Add(this.showHistory);
             this.Controls.Add(this.exchangeCurrency);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MainMenu";
+            this.Text = "Главное меню";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -181,13 +181,13 @@
         private System.Windows.Forms.Button setLimits;
         private System.Windows.Forms.Button setRateOfExchange;
         private System.Windows.Forms.Button setNextDay;
-        private System.Windows.Forms.TextBox Date;
+        private System.Windows.Forms.TextBox dateField;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox passField;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button enterAdmin;
+        private System.Windows.Forms.Button exitAdmin;
     }
 }
 
