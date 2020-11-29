@@ -26,5 +26,17 @@ namespace UI
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
+        }
+
+        private void ActivityHistory_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,11 +40,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.enterAdmin = new System.Windows.Forms.Button();
             this.exitAdmin = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exchangeCurrency
             // 
-            this.exchangeCurrency.Location = new System.Drawing.Point(271, 97);
+            this.exchangeCurrency.Location = new System.Drawing.Point(271, 96);
             this.exchangeCurrency.Name = "exchangeCurrency";
             this.exchangeCurrency.Size = new System.Drawing.Size(267, 47);
             this.exchangeCurrency.TabIndex = 0;
@@ -60,24 +61,27 @@
             this.showHistory.TabIndex = 1;
             this.showHistory.Text = "История операций";
             this.showHistory.UseVisualStyleBackColor = true;
+            this.showHistory.Click += new System.EventHandler(this.showHistory_Click);
             // 
             // setLimits
             // 
-            this.setLimits.Location = new System.Drawing.Point(271, 227);
+            this.setLimits.Location = new System.Drawing.Point(271, 295);
             this.setLimits.Name = "setLimits";
             this.setLimits.Size = new System.Drawing.Size(267, 47);
             this.setLimits.TabIndex = 2;
             this.setLimits.Text = "Установить лимиты";
             this.setLimits.UseVisualStyleBackColor = true;
+            this.setLimits.Click += new System.EventHandler(this.setLimits_Click);
             // 
             // setRateOfExchange
             // 
-            this.setRateOfExchange.Location = new System.Drawing.Point(271, 296);
+            this.setRateOfExchange.Location = new System.Drawing.Point(271, 229);
             this.setRateOfExchange.Name = "setRateOfExchange";
             this.setRateOfExchange.Size = new System.Drawing.Size(267, 47);
             this.setRateOfExchange.TabIndex = 3;
             this.setRateOfExchange.Text = "Установить курсы обмена валют";
             this.setRateOfExchange.UseVisualStyleBackColor = true;
+            this.setRateOfExchange.Click += new System.EventHandler(this.setRateOfExchange_Click);
             // 
             // setNextDay
             // 
@@ -94,6 +98,7 @@
             this.dateField.Name = "dateField";
             this.dateField.Size = new System.Drawing.Size(152, 22);
             this.dateField.TabIndex = 5;
+            this.dateField.TextChanged += new System.EventHandler(this.dateField_TextChanged);
             // 
             // label1
             // 
@@ -149,11 +154,22 @@
             this.exitAdmin.Text = "Выйти из режима администратора";
             this.exitAdmin.UseVisualStyleBackColor = true;
             // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(672, 376);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(116, 62);
+            this.exitButton.TabIndex = 19;
+            this.exitButton.Text = "Выход";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.exitAdmin);
             this.Controls.Add(this.enterAdmin);
             this.Controls.Add(this.label2);
@@ -167,6 +183,7 @@
             this.Controls.Add(this.showHistory);
             this.Controls.Add(this.exchangeCurrency);
             this.Name = "MainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное меню";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -188,6 +205,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button enterAdmin;
         private System.Windows.Forms.Button exitAdmin;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 

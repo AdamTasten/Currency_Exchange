@@ -193,6 +193,7 @@
             this.button2.TabIndex = 15;
             this.button2.Text = "Вернуться на главную страницу";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // CurrencyExchange
             // 
@@ -216,6 +217,7 @@
             this.Controls.Add(this.radioButton6);
             this.Controls.Add(this.radioButton1);
             this.Name = "CurrencyExchange";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Обмен валюты";
             this.ResumeLayout(false);
             this.PerformLayout();

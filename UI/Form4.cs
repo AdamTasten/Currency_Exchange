@@ -19,7 +19,9 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Show();
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -28,6 +30,11 @@ namespace UI
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RateOfExchange_Load(object sender, EventArgs e)
         {
 
         }
