@@ -44,6 +44,7 @@ namespace UI
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\source\repos\UI\UI\Database1.mdf;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
             await sqlConnection.OpenAsync();
+
             SqlDataReader sqlReader = null;
             SqlCommand command = new SqlCommand("SELECT * FROM [Table]", sqlConnection);
             try
@@ -63,6 +64,7 @@ namespace UI
                 if (sqlReader != null)
                     sqlReader.Close();
             }
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,6 +75,30 @@ namespace UI
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM [Table]", sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Id"]) + "        " + Convert.ToString(sqlReader["Name"]) + "        " + Convert.ToString(sqlReader["Price"]));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
         }
     }
 }
