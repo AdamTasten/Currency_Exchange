@@ -53,10 +53,14 @@ namespace UI
                 while (await sqlReader.ReadAsync())
                 {
                     listBox1.Items.Add(
-                        Convert.ToString(sqlReader["Name"]) + "        " +
-                        Convert.ToString(sqlReader["Price"]) + "        " +
+                        Convert.ToString(sqlReader["Date"]) + "        " +
+                        Convert.ToString(sqlReader["Client"]) + "        " +
+                        Convert.ToString(sqlReader["ClientID"]) + "        " +
+                        Convert.ToString(sqlReader["Cashier"]) + "        " +
                         Convert.ToString(sqlReader["Type"]) + "        " +
-                        Convert.ToString(sqlReader["Date"])
+                        Convert.ToString(sqlReader["Currency"]) + "        " +
+                        Convert.ToString(sqlReader["Given"]) + "        " +
+                        Convert.ToString(sqlReader["Got"])
                         );
                 }
             }
@@ -98,10 +102,14 @@ namespace UI
                     if (periodNow >= periodFrom && periodNow <= periodTo)//выбираем данные соответствующие периоду
                     {
                         listBox1.Items.Add(                            
-                            Convert.ToString(sqlReader["Name"]) + "        " +
-                            Convert.ToString(sqlReader["Price"]) + "        " +
+                            Convert.ToString(sqlReader["Date"]) + "        " +
+                            Convert.ToString(sqlReader["Client"]) + "        " +
+                            Convert.ToString(sqlReader["ClientID"]) + "        " +
+                            Convert.ToString(sqlReader["Cashier"]) + "        " +
                             Convert.ToString(sqlReader["Type"]) + "        " +
-                            Convert.ToString(sqlReader["Date"])
+                            Convert.ToString(sqlReader["Currency"]) + "        " +
+                            Convert.ToString(sqlReader["Given"]) + "        " +
+                            Convert.ToString(sqlReader["Got"])
                             );
                     }
                 }

@@ -49,7 +49,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dateBox = new System.Windows.Forms.ListBox();
             this.nextDayButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.userID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -122,7 +122,7 @@
             this.clientName.Name = "clientName";
             this.clientName.Size = new System.Drawing.Size(294, 22);
             this.clientName.TabIndex = 5;
-            this.clientName.Text = "Здещиц Алесь";
+            this.clientName.Text = "Здещиц Адам Александрович";
             this.clientName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cashierName
@@ -131,6 +131,7 @@
             this.cashierName.Name = "cashierName";
             this.cashierName.Size = new System.Drawing.Size(294, 22);
             this.cashierName.TabIndex = 6;
+            this.cashierName.Text = "Вортынько Мария Ивановна";
             // 
             // label1
             // 
@@ -268,12 +269,13 @@
             this.nextDayButton.UseVisualStyleBackColor = true;
             this.nextDayButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox1
+            // userID
             // 
-            this.textBox1.Location = new System.Drawing.Point(266, 275);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(294, 22);
-            this.textBox1.TabIndex = 21;
+            this.userID.Location = new System.Drawing.Point(266, 275);
+            this.userID.Name = "userID";
+            this.userID.Size = new System.Drawing.Size(294, 22);
+            this.userID.TabIndex = 21;
+            this.userID.Text = "User1001";
             // 
             // label7
             // 
@@ -290,7 +292,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 478);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.userID);
             this.Controls.Add(this.nextDayButton);
             this.Controls.Add(this.dateBox);
             this.Controls.Add(this.groupBox2);
@@ -343,7 +345,7 @@
         private System.Windows.Forms.ListBox dateBox;
         private System.Windows.Forms.Button nextDayButton;
         public System.Windows.Forms.TextBox givenValue;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox userID;
         private System.Windows.Forms.Label label7;
     }
 }

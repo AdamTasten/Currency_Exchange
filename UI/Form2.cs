@@ -56,10 +56,15 @@ namespace UI
             }
             else
             {
-                SqlCommand command = new SqlCommand("INSERT INTO [TABLE] (Name, Price, Type, Date)VALUES(@Name, @Price, @Type, @Date)", sqlConnection);
-                command.Parameters.AddWithValue("Name", clientName.Text);
-                command.Parameters.AddWithValue("Price", givenValue.Text);
+                SqlCommand command = new SqlCommand("INSERT INTO [TABLE] (Date, Client, ClientID, Cashier, Type, Currency, Given, Got)VALUES(@Date, @Client, @ClientID, @Cashier, @Type, @Currency, @Given, @Got)", sqlConnection);
                 command.Parameters.AddWithValue("Date", date);
+                command.Parameters.AddWithValue("Client", clientName.Text);
+                command.Parameters.AddWithValue("ClientID", userID.Text);
+                command.Parameters.AddWithValue("Cashier", cashierName.Text);
+                command.Parameters.AddWithValue("Type", type);
+                command.Parameters.AddWithValue("Currency", currency);
+                command.Parameters.AddWithValue("Given", givenValue.Text);
+                command.Parameters.AddWithValue("Got", gotValue.Text);
                 //if (toBuyRB.Checked)
                 //{
                 //    command.Parameters.AddWithValue("Type", toBuyRB.Text);
@@ -68,7 +73,7 @@ namespace UI
                 //{
                 //    command.Parameters.AddWithValue("Type", toSellRB.Text);
                 //}
-                command.Parameters.AddWithValue("Type", type);
+
                 await command.ExecuteNonQueryAsync();
             }
         }
