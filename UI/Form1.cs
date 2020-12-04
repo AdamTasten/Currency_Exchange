@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -41,7 +42,12 @@ namespace UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if ((bool)Settings.Default["isLogged"])
+            {
+                showHistory.Visible = true;
+                passField.Text = (string)Settings.Default["password"];
+            }
+                
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -77,21 +83,30 @@ namespace UI
 
         private void dateField_TextChanged(object sender, EventArgs e)
         {
-            //dateField.Text = "30.11.2020";
+
         }
 
         private void enterAdmin_Click(object sender, EventArgs e)
         {
-            if (passField.Text.Equals ("123"))
+            if (passField.Text.Equals (Settings.Default["password"]))
             {
                 showHistory.Visible = true;
+                Settings.Default["isLogged"] = true;
+                Settings.Default.Save();
             }
         }
 
         private void exitAdmin_Click(object sender, EventArgs e)
         {
             showHistory.Visible = false;
+            Settings.Default["isLogged"] = false;
+            Settings.Default.Save();
             passField.Clear();
+        }
+
+        private void passField_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

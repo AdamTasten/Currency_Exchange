@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -35,6 +36,27 @@ namespace UI
         }
 
         private void RateOfExchange_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = Settings.Default["USDBuy"].ToString();
+            textBox3.Text = Settings.Default["USDSell"].ToString();
+            textBox2.Text = Settings.Default["EURBuy"].ToString();
+            textBox4.Text = Settings.Default["EURSell"].ToString();
+            textBox5.Text = Settings.Default["RUBBuy"].ToString();
+            textBox6.Text = Settings.Default["RUBSell"].ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Settings.Default["USDBuy"] = textBox1.Text;
+            Settings.Default["USDSell"] = textBox3.Text;
+            Settings.Default["EURBuy"] = textBox2.Text;
+            Settings.Default["EURSell"] = textBox4.Text;
+            Settings.Default["RUBBuy"] = textBox5.Text;
+            Settings.Default["RUBSell"] = textBox6.Text;
+            Settings.Default.Save();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

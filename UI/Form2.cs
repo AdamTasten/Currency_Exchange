@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using UI.Properties;
 
 namespace UI
 {
     public partial class CurrencyExchange : Form
     {
+        string currency = "USD";
+
         SqlConnection sqlConnection;
         DateTime date = new DateTime(2020, 12, 4);
 
@@ -33,35 +36,37 @@ namespace UI
         private async void button1_Click(object sender, EventArgs e)
         {
             if (label6.Visible) label6.Visible = false;
-            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text) &&
-                !string.IsNullOrEmpty(textBox3.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
+            if (!string.IsNullOrEmpty(clientName.Text) && !string.IsNullOrWhiteSpace(clientName.Text) &&
+                !string.IsNullOrEmpty(givenValue.Text) && !string.IsNullOrWhiteSpace(givenValue.Text) &&
+                Convert.ToDouble(givenValue.Text) <= Convert.ToDouble((string)Settings.Default["USDoper"]))
             {
                 SqlCommand command = new SqlCommand("INSERT INTO [TABLE] (Name, Price, Type, Date)VALUES(@Name, @Price, @Type, @Date)", sqlConnection);
-                command.Parameters.AddWithValue("Name", textBox1.Text);
-                command.Parameters.AddWithValue("Price", textBox3.Text);
+                command.Parameters.AddWithValue("Name", clientName.Text);
+                command.Parameters.AddWithValue("Price", givenValue.Text);
                 command.Parameters.AddWithValue("Date", date);
-                if (radioButton1.Checked)
+                if (toBuyRB.Checked)
                 {
-                    command.Parameters.AddWithValue("Type", radioButton1.Text);
+                    command.Parameters.AddWithValue("Type", toBuyRB.Text);
                 }
-                if (radioButton6.Checked)
+                if (toSellRB.Checked)
                 {
-                    command.Parameters.AddWithValue("Type", radioButton6.Text);
+                    command.Parameters.AddWithValue("Type", toSellRB.Text);
                 }
                 await command.ExecuteNonQueryAsync();
             }
             else
             {
                 label6.Visible = true;
-                label6.Text = "Проверьте, чтобы все поля были заполнены!";
+                label6.Text = "Проверьте, чтобы все поля были правильно заполнены, в том числе соответствовали лимитам!";
             }
         }
 
         private async void CurrencyExchange_Load(object sender, EventArgs e)
         {
+            
             try
             {
-                listBox1.Items.Add(date);
+                dateBox.Items.Add(date);
             }
             catch (Exception ex)
             {
@@ -70,7 +75,15 @@ namespace UI
 
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\source\repos\UI\UI\Database1.mdf;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
-            await sqlConnection.OpenAsync();
+            try
+            {
+                await sqlConnection.OpenAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -90,16 +103,141 @@ namespace UI
 
         private void button3_Click(object sender, EventArgs e)//перейти на след. день
         {
+
             date = date.AddDays(1);
-            listBox1.Items.Clear();
+            dateBox.Items.Clear();
             try
             {
-                listBox1.Items.Add(date);
+                dateBox.Items.Add(date);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void givenValue_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (currency)
+                {
+                    case "USD":
+                        if (toBuyRB.Checked)
+                        {
+                            gotValue.Text = (Convert.ToDouble(givenValue.Text) / Convert.ToDouble(Settings.Default["USDBuy"].ToString())).ToString();
+                        }
+                        if (toSellRB.Checked)
+                        {
+                            gotValue.Text = (Convert.ToDouble(Settings.Default["USDSell"].ToString()) * Convert.ToDouble(givenValue.Text)).ToString();
+                        }
+                        break;
+                    case "EUR":
+                        if (toBuyRB.Checked)
+                        {
+                            gotValue.Text = (Convert.ToDouble(givenValue.Text) / Convert.ToDouble(Settings.Default["EURBuy"].ToString())).ToString();
+                        }
+                        if (toSellRB.Checked)
+                        {
+                            gotValue.Text = (Convert.ToDouble(Settings.Default["EURSell"].ToString()) * Convert.ToDouble(givenValue.Text)).ToString();
+                        }
+                        break;
+                    case "RUB":
+                        if (toBuyRB.Checked)
+                        {
+                            gotValue.Text = (Convert.ToDouble(givenValue.Text) / Convert.ToDouble(Settings.Default["RUBBuy"].ToString())).ToString();
+                        }
+                        if (toSellRB.Checked)
+                        {
+                            gotValue.Text = (Convert.ToDouble(Settings.Default["RUBSell"].ToString()) * Convert.ToDouble(givenValue.Text)).ToString();
+                        }
+                        break;
+                }
+            }
+            catch
+            {
+
+            }
+
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (currency)
+                {
+                    case "USD":
+                        if (toBuyRB.Checked)
+                        {
+                            givenValue.Text = (Convert.ToDouble(gotValue.Text) * Convert.ToDouble(Settings.Default["USDBuy"].ToString())).ToString();
+                        }
+                        if (toSellRB.Checked)
+                        {
+                            givenValue.Text = (Convert.ToDouble(gotValue.Text) / Convert.ToDouble(Settings.Default["USDSell"].ToString())).ToString();
+                        }
+                        break;
+                    case "EUR":
+                        if (toBuyRB.Checked)
+                        {
+                            givenValue.Text = (Convert.ToDouble(gotValue.Text) * Convert.ToDouble(Settings.Default["EURBuy"].ToString())).ToString();
+                        }
+                        if (toSellRB.Checked)
+                        {
+                            givenValue.Text = (Convert.ToDouble(gotValue.Text) / Convert.ToDouble(Settings.Default["EURSell"].ToString())).ToString();
+                        }
+                        break;
+                    case "RUB":
+                        if (toBuyRB.Checked)
+                        {
+                            givenValue.Text = (Convert.ToDouble(gotValue.Text) * Convert.ToDouble(Settings.Default["RUBBuy"].ToString())).ToString();
+                        }
+                        if (toSellRB.Checked)
+                        {
+                            givenValue.Text = (Convert.ToDouble(gotValue.Text) / Convert.ToDouble(Settings.Default["RUBSell"].ToString())).ToString();
+                        }
+                        break;
+                }
+            }
+            catch 
+            {
+            
+            }
+
+        }
+
+        private void usdRB_CheckedChanged(object sender, EventArgs e)
+        {
+            givenValue.Text = "";
+            gotValue.Text = "";
+            currency = "USD";
+        }
+
+        private void eurRB_CheckedChanged(object sender, EventArgs e)
+        {
+            givenValue.Text = "";
+            gotValue.Text = "";
+            currency = "EUR";
+        }
+
+        private void rubRB_CheckedChanged(object sender, EventArgs e)
+        {
+            givenValue.Text = "";
+            gotValue.Text = "";
+            currency = "RUB";
+        }
+
+        private void toBuyRB_CheckedChanged(object sender, EventArgs e)//зануляем поля валют, если выбран новый тип обмена
+        {
+            givenValue.Text = "";
+            gotValue.Text = "";
+        }
+
+        private void toSellRB_CheckedChanged(object sender, EventArgs e)//зануляем поля валют, если выбран новый тип обмена
+        {
+            givenValue.Text = "";
+            gotValue.Text = "";
         }
     }
 }

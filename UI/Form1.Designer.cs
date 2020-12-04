@@ -32,7 +32,6 @@
             this.showHistory = new System.Windows.Forms.Button();
             this.setLimits = new System.Windows.Forms.Button();
             this.setRateOfExchange = new System.Windows.Forms.Button();
-            this.setNextDay = new System.Windows.Forms.Button();
             this.dateField = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.passField = new System.Windows.Forms.TextBox();
@@ -41,6 +40,7 @@
             this.enterAdmin = new System.Windows.Forms.Button();
             this.exitAdmin = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.setNextDay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exchangeCurrency
@@ -61,6 +61,7 @@
             this.showHistory.TabIndex = 1;
             this.showHistory.Text = "История операций";
             this.showHistory.UseVisualStyleBackColor = true;
+            this.showHistory.Visible = false;
             this.showHistory.Click += new System.EventHandler(this.showHistory_Click);
             // 
             // setLimits
@@ -82,15 +83,6 @@
             this.setRateOfExchange.Text = "Установить курсы обмена валют";
             this.setRateOfExchange.UseVisualStyleBackColor = true;
             this.setRateOfExchange.Click += new System.EventHandler(this.setRateOfExchange_Click);
-            // 
-            // setNextDay
-            // 
-            this.setNextDay.Location = new System.Drawing.Point(271, 364);
-            this.setNextDay.Name = "setNextDay";
-            this.setNextDay.Size = new System.Drawing.Size(267, 47);
-            this.setNextDay.TabIndex = 4;
-            this.setNextDay.Text = "Перейти на следующий день";
-            this.setNextDay.UseVisualStyleBackColor = true;
             // 
             // dateField
             // 
@@ -116,6 +108,7 @@
             this.passField.Name = "passField";
             this.passField.Size = new System.Drawing.Size(100, 22);
             this.passField.TabIndex = 15;
+            this.passField.TextChanged += new System.EventHandler(this.passField_TextChanged);
             // 
             // label7
             // 
@@ -166,6 +159,15 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // setNextDay
+            // 
+            this.setNextDay.Location = new System.Drawing.Point(271, 364);
+            this.setNextDay.Name = "setNextDay";
+            this.setNextDay.Size = new System.Drawing.Size(267, 47);
+            this.setNextDay.TabIndex = 4;
+            this.setNextDay.Text = "Перейти на следующий день";
+            this.setNextDay.UseVisualStyleBackColor = true;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -199,7 +201,6 @@
         private System.Windows.Forms.Button showHistory;
         private System.Windows.Forms.Button setLimits;
         private System.Windows.Forms.Button setRateOfExchange;
-        private System.Windows.Forms.Button setNextDay;
         private System.Windows.Forms.TextBox dateField;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox passField;
@@ -208,6 +209,7 @@
         private System.Windows.Forms.Button enterAdmin;
         private System.Windows.Forms.Button exitAdmin;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button setNextDay;
     }
 }
 

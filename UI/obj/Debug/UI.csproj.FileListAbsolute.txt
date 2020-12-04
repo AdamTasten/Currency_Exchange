@@ -13,3 +13,4 @@ C:\Users\User\source\repos\UI\UI\obj\Debug\UI.RateOfExchange.resources
 C:\Users\User\source\repos\UI\UI\obj\Debug\UI.Limits.resources
 C:\Users\User\source\repos\UI\UI\bin\Debug\Database1.mdf
 C:\Users\User\source\repos\UI\UI\bin\Debug\Database1_log.ldf
+C:\Users\User\source\repos\UI\UI\bin\Debug\UI.exe.config
