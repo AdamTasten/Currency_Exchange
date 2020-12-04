@@ -122,6 +122,7 @@
             this.clientName.Name = "clientName";
             this.clientName.Size = new System.Drawing.Size(294, 22);
             this.clientName.TabIndex = 5;
+            this.clientName.Text = "Здещиц Алесь";
             this.clientName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cashierName
@@ -218,7 +219,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(383, 453);
+            this.label6.Location = new System.Drawing.Point(126, 452);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 17);
             this.label6.TabIndex = 16;

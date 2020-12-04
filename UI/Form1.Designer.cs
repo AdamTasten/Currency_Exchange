@@ -32,15 +32,12 @@
             this.showHistory = new System.Windows.Forms.Button();
             this.setLimits = new System.Windows.Forms.Button();
             this.setRateOfExchange = new System.Windows.Forms.Button();
-            this.dateField = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.passField = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.enterAdmin = new System.Windows.Forms.Button();
             this.exitAdmin = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.setNextDay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exchangeCurrency
@@ -72,6 +69,7 @@
             this.setLimits.TabIndex = 2;
             this.setLimits.Text = "Установить лимиты";
             this.setLimits.UseVisualStyleBackColor = true;
+            this.setLimits.Visible = false;
             this.setLimits.Click += new System.EventHandler(this.setLimits_Click);
             // 
             // setRateOfExchange
@@ -82,30 +80,14 @@
             this.setRateOfExchange.TabIndex = 3;
             this.setRateOfExchange.Text = "Установить курсы обмена валют";
             this.setRateOfExchange.UseVisualStyleBackColor = true;
+            this.setRateOfExchange.Visible = false;
             this.setRateOfExchange.Click += new System.EventHandler(this.setRateOfExchange_Click);
-            // 
-            // dateField
-            // 
-            this.dateField.Location = new System.Drawing.Point(329, 32);
-            this.dateField.Name = "dateField";
-            this.dateField.Size = new System.Drawing.Size(152, 22);
-            this.dateField.TabIndex = 5;
-            this.dateField.TextChanged += new System.EventHandler(this.dateField_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label1.Location = new System.Drawing.Point(360, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "ДД.ММ.ГГГГ";
             // 
             // passField
             // 
             this.passField.Location = new System.Drawing.Point(67, 37);
             this.passField.Name = "passField";
+            this.passField.PasswordChar = '*';
             this.passField.Size = new System.Drawing.Size(100, 22);
             this.passField.TabIndex = 15;
             this.passField.TextChanged += new System.EventHandler(this.passField_TextChanged);
@@ -151,22 +133,13 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(672, 376);
+            this.exitButton.Location = new System.Drawing.Point(672, 12);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(116, 62);
             this.exitButton.TabIndex = 19;
             this.exitButton.Text = "Выход";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // setNextDay
-            // 
-            this.setNextDay.Location = new System.Drawing.Point(271, 364);
-            this.setNextDay.Name = "setNextDay";
-            this.setNextDay.Size = new System.Drawing.Size(267, 47);
-            this.setNextDay.TabIndex = 4;
-            this.setNextDay.Text = "Перейти на следующий день";
-            this.setNextDay.UseVisualStyleBackColor = true;
             // 
             // MainMenu
             // 
@@ -179,9 +152,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.passField);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dateField);
-            this.Controls.Add(this.setNextDay);
             this.Controls.Add(this.setRateOfExchange);
             this.Controls.Add(this.setLimits);
             this.Controls.Add(this.showHistory);
@@ -201,15 +171,12 @@
         private System.Windows.Forms.Button showHistory;
         private System.Windows.Forms.Button setLimits;
         private System.Windows.Forms.Button setRateOfExchange;
-        private System.Windows.Forms.TextBox dateField;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox passField;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button enterAdmin;
         private System.Windows.Forms.Button exitAdmin;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Button setNextDay;
     }
 }
 

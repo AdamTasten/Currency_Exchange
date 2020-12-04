@@ -15,7 +15,7 @@ namespace UI
     public partial class CurrencyExchange : Form
     {
         string currency = "USD";
-
+        string type = "Покупка";
         SqlConnection sqlConnection;
         DateTime date = new DateTime(2020, 12, 4);
 
@@ -36,28 +36,40 @@ namespace UI
         private async void button1_Click(object sender, EventArgs e)
         {
             if (label6.Visible) label6.Visible = false;
-            if (!string.IsNullOrEmpty(clientName.Text) && !string.IsNullOrWhiteSpace(clientName.Text) &&
-                !string.IsNullOrEmpty(givenValue.Text) && !string.IsNullOrWhiteSpace(givenValue.Text) &&
-                Convert.ToDouble(givenValue.Text) <= Convert.ToDouble((string)Settings.Default["USDoper"]))
+            if (string.IsNullOrEmpty(clientName.Text) || string.IsNullOrWhiteSpace(clientName.Text) ||
+                string.IsNullOrEmpty(givenValue.Text) || string.IsNullOrWhiteSpace(givenValue.Text)
+               )
+            {
+                label6.Visible = true;
+                label6.Text = "Проверьте, чтобы  поля не были пустыми!";
+            }
+            else if ((type.Equals("Продажа") && Convert.ToDouble(givenValue.Text) > Convert.ToDouble((string)Settings.Default[currency + "oper"])) ||
+                (type.Equals("Покупка") && Convert.ToDouble(gotValue.Text) > Convert.ToDouble((string)Settings.Default[currency + "oper"])))
+            {
+                label6.Visible = true;
+                label6.Text = "Проверьте, чтобы значения валюты соответствовали лимитам на операцию!";
+            }
+            else if (false)
+            {
+                label6.Visible = true;
+                label6.Text = "Вероятно, вы превышаете лимит на день!";
+            }
+            else
             {
                 SqlCommand command = new SqlCommand("INSERT INTO [TABLE] (Name, Price, Type, Date)VALUES(@Name, @Price, @Type, @Date)", sqlConnection);
                 command.Parameters.AddWithValue("Name", clientName.Text);
                 command.Parameters.AddWithValue("Price", givenValue.Text);
                 command.Parameters.AddWithValue("Date", date);
-                if (toBuyRB.Checked)
-                {
-                    command.Parameters.AddWithValue("Type", toBuyRB.Text);
-                }
-                if (toSellRB.Checked)
-                {
-                    command.Parameters.AddWithValue("Type", toSellRB.Text);
-                }
+                //if (toBuyRB.Checked)
+                //{
+                //    command.Parameters.AddWithValue("Type", toBuyRB.Text);
+                //}
+                //if (toSellRB.Checked)
+                //{
+                //    command.Parameters.AddWithValue("Type", toSellRB.Text);
+                //}
+                command.Parameters.AddWithValue("Type", type);
                 await command.ExecuteNonQueryAsync();
-            }
-            else
-            {
-                label6.Visible = true;
-                label6.Text = "Проверьте, чтобы все поля были правильно заполнены, в том числе соответствовали лимитам!";
             }
         }
 
@@ -232,12 +244,14 @@ namespace UI
         {
             givenValue.Text = "";
             gotValue.Text = "";
+            type = "Покупка";
         }
 
         private void toSellRB_CheckedChanged(object sender, EventArgs e)//зануляем поля валют, если выбран новый тип обмена
         {
             givenValue.Text = "";
             gotValue.Text = "";
+            type = "Продажа";
         }
     }
 }

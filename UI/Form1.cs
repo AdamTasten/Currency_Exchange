@@ -45,6 +45,8 @@ namespace UI
             if ((bool)Settings.Default["isLogged"])
             {
                 showHistory.Visible = true;
+                setRateOfExchange.Visible = true;
+                setLimits.Visible = true;
                 passField.Text = (string)Settings.Default["password"];
             }
                 
@@ -91,6 +93,8 @@ namespace UI
             if (passField.Text.Equals (Settings.Default["password"]))
             {
                 showHistory.Visible = true;
+                setRateOfExchange.Visible = true;
+                setLimits.Visible = true;
                 Settings.Default["isLogged"] = true;
                 Settings.Default.Save();
             }
@@ -99,6 +103,8 @@ namespace UI
         private void exitAdmin_Click(object sender, EventArgs e)
         {
             showHistory.Visible = false;
+            setRateOfExchange.Visible = false;
+            setLimits.Visible = false;
             Settings.Default["isLogged"] = false;
             Settings.Default.Save();
             passField.Clear();
