@@ -52,7 +52,12 @@ namespace UI
                 sqlReader = await command.ExecuteReaderAsync();
                 while (await sqlReader.ReadAsync())
                 {
-                    listBox1.Items.Add(Convert.ToString(sqlReader["Id"]) + "        " + Convert.ToString(sqlReader["Name"]) + "        " + Convert.ToString(sqlReader["Price"]));
+                    listBox1.Items.Add(
+                        Convert.ToString(sqlReader["Name"]) + "        " +
+                        Convert.ToString(sqlReader["Price"]) + "        " +
+                        Convert.ToString(sqlReader["Type"]) + "        " +
+                        Convert.ToString(sqlReader["Date"])
+                        );
                 }
             }
             catch (Exception ex)
@@ -82,12 +87,23 @@ namespace UI
             listBox1.Items.Clear();
             SqlDataReader sqlReader = null;
             SqlCommand command = new SqlCommand("SELECT * FROM [Table]", sqlConnection);
+            var periodFrom = DateTime.Parse(textBox1.Text);//введённая дата для периода истории операций
+            var periodTo = DateTime.Parse(textBox2.Text);//введённая дата для периода истории операций
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
                 while (await sqlReader.ReadAsync())
                 {
-                    listBox1.Items.Add(Convert.ToString(sqlReader["Id"]) + "        " + Convert.ToString(sqlReader["Name"]) + "        " + Convert.ToString(sqlReader["Price"]));
+                    var periodNow = DateTime.Parse(Convert.ToString(sqlReader["Date"]));//дата текущей операции
+                    if (periodNow >= periodFrom && periodNow <= periodTo)//выбираем данные соответствующие периоду
+                    {
+                        listBox1.Items.Add(                            
+                            Convert.ToString(sqlReader["Name"]) + "        " +
+                            Convert.ToString(sqlReader["Price"]) + "        " +
+                            Convert.ToString(sqlReader["Type"]) + "        " +
+                            Convert.ToString(sqlReader["Date"])
+                            );
+                    }
                 }
             }
             catch (Exception ex)

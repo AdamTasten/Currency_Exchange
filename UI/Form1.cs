@@ -79,5 +79,19 @@ namespace UI
         {
             //dateField.Text = "30.11.2020";
         }
+
+        private void enterAdmin_Click(object sender, EventArgs e)
+        {
+            if (passField.Text.Equals ("123"))
+            {
+                showHistory.Visible = true;
+            }
+        }
+
+        private void exitAdmin_Click(object sender, EventArgs e)
+        {
+            showHistory.Visible = false;
+            passField.Clear();
+        }
     }
 }

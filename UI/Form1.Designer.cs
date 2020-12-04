@@ -144,6 +144,7 @@
             this.enterAdmin.TabIndex = 17;
             this.enterAdmin.Text = "Включить";
             this.enterAdmin.UseVisualStyleBackColor = true;
+            this.enterAdmin.Click += new System.EventHandler(this.enterAdmin_Click);
             // 
             // exitAdmin
             // 
@@ -153,6 +154,7 @@
             this.exitAdmin.TabIndex = 18;
             this.exitAdmin.Text = "Выйти из режима администратора";
             this.exitAdmin.UseVisualStyleBackColor = true;
+            this.exitAdmin.Click += new System.EventHandler(this.exitAdmin_Click);
             // 
             // exitButton
             // 
