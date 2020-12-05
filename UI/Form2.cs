@@ -132,6 +132,13 @@ namespace UI
 
         private async void CurrencyExchange_Load(object sender, EventArgs e)
         {
+            limOpUSDValue.Text = Settings.Default["USDoper"].ToString();
+            limClUSDValue.Text = Settings.Default["USDclient"].ToString();
+            limOpEURValue.Text = Settings.Default["EURoper"].ToString();
+            limClEURValue.Text = Settings.Default["EURclient"].ToString();
+            limOpRUBValue.Text = Settings.Default["RUBoper"].ToString();
+            limClRUBValue.Text = Settings.Default["RUBclient"].ToString();
+
             if ((bool)Settings.Default["isLogged"])
             {
                 nextDayButton.Visible = true;

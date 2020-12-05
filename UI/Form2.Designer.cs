@@ -52,6 +52,20 @@
             this.userID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.sumLabel = new System.Windows.Forms.Label();
+            this.limOpUSDLabel = new System.Windows.Forms.Label();
+            this.limOpUSDValue = new System.Windows.Forms.Label();
+            this.limOpEURLabel = new System.Windows.Forms.Label();
+            this.limOpEURValue = new System.Windows.Forms.Label();
+            this.limOpRUBLabel = new System.Windows.Forms.Label();
+            this.limOpRUBValue = new System.Windows.Forms.Label();
+            this.limClUSDLabel = new System.Windows.Forms.Label();
+            this.limClUSDValue = new System.Windows.Forms.Label();
+            this.limClEURLabel = new System.Windows.Forms.Label();
+            this.limClEURValue = new System.Windows.Forms.Label();
+            this.limClRUBLabel = new System.Windows.Forms.Label();
+            this.limClRUBValue = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -297,11 +311,153 @@
             this.sumLabel.TabIndex = 23;
             this.sumLabel.Text = "label8";
             // 
+            // limOpUSDLabel
+            // 
+            this.limOpUSDLabel.AutoSize = true;
+            this.limOpUSDLabel.Location = new System.Drawing.Point(629, 209);
+            this.limOpUSDLabel.Name = "limOpUSDLabel";
+            this.limOpUSDLabel.Size = new System.Drawing.Size(41, 17);
+            this.limOpUSDLabel.TabIndex = 24;
+            this.limOpUSDLabel.Text = "USD:";
+            // 
+            // limOpUSDValue
+            // 
+            this.limOpUSDValue.AutoSize = true;
+            this.limOpUSDValue.Location = new System.Drawing.Point(672, 209);
+            this.limOpUSDValue.Name = "limOpUSDValue";
+            this.limOpUSDValue.Size = new System.Drawing.Size(46, 17);
+            this.limOpUSDValue.TabIndex = 25;
+            this.limOpUSDValue.Text = "label9";
+            // 
+            // limOpEURLabel
+            // 
+            this.limOpEURLabel.AutoSize = true;
+            this.limOpEURLabel.Location = new System.Drawing.Point(629, 237);
+            this.limOpEURLabel.Name = "limOpEURLabel";
+            this.limOpEURLabel.Size = new System.Drawing.Size(41, 17);
+            this.limOpEURLabel.TabIndex = 26;
+            this.limOpEURLabel.Text = "EUR:";
+            // 
+            // limOpEURValue
+            // 
+            this.limOpEURValue.AutoSize = true;
+            this.limOpEURValue.Location = new System.Drawing.Point(672, 237);
+            this.limOpEURValue.Name = "limOpEURValue";
+            this.limOpEURValue.Size = new System.Drawing.Size(54, 17);
+            this.limOpEURValue.TabIndex = 27;
+            this.limOpEURValue.Text = "label11";
+            // 
+            // limOpRUBLabel
+            // 
+            this.limOpRUBLabel.AutoSize = true;
+            this.limOpRUBLabel.Location = new System.Drawing.Point(629, 261);
+            this.limOpRUBLabel.Name = "limOpRUBLabel";
+            this.limOpRUBLabel.Size = new System.Drawing.Size(41, 17);
+            this.limOpRUBLabel.TabIndex = 28;
+            this.limOpRUBLabel.Text = "RUB:";
+            // 
+            // limOpRUBValue
+            // 
+            this.limOpRUBValue.AutoSize = true;
+            this.limOpRUBValue.Location = new System.Drawing.Point(672, 262);
+            this.limOpRUBValue.Name = "limOpRUBValue";
+            this.limOpRUBValue.Size = new System.Drawing.Size(54, 17);
+            this.limOpRUBValue.TabIndex = 29;
+            this.limOpRUBValue.Text = "label13";
+            // 
+            // limClUSDLabel
+            // 
+            this.limClUSDLabel.AutoSize = true;
+            this.limClUSDLabel.Location = new System.Drawing.Point(629, 320);
+            this.limClUSDLabel.Name = "limClUSDLabel";
+            this.limClUSDLabel.Size = new System.Drawing.Size(41, 17);
+            this.limClUSDLabel.TabIndex = 30;
+            this.limClUSDLabel.Text = "USD:";
+            // 
+            // limClUSDValue
+            // 
+            this.limClUSDValue.AutoSize = true;
+            this.limClUSDValue.Location = new System.Drawing.Point(689, 320);
+            this.limClUSDValue.Name = "limClUSDValue";
+            this.limClUSDValue.Size = new System.Drawing.Size(54, 17);
+            this.limClUSDValue.TabIndex = 31;
+            this.limClUSDValue.Text = "label15";
+            // 
+            // limClEURLabel
+            // 
+            this.limClEURLabel.AutoSize = true;
+            this.limClEURLabel.Location = new System.Drawing.Point(629, 344);
+            this.limClEURLabel.Name = "limClEURLabel";
+            this.limClEURLabel.Size = new System.Drawing.Size(41, 17);
+            this.limClEURLabel.TabIndex = 32;
+            this.limClEURLabel.Text = "EUR:";
+            // 
+            // limClEURValue
+            // 
+            this.limClEURValue.AutoSize = true;
+            this.limClEURValue.Location = new System.Drawing.Point(689, 344);
+            this.limClEURValue.Name = "limClEURValue";
+            this.limClEURValue.Size = new System.Drawing.Size(54, 17);
+            this.limClEURValue.TabIndex = 33;
+            this.limClEURValue.Text = "label17";
+            // 
+            // limClRUBLabel
+            // 
+            this.limClRUBLabel.AutoSize = true;
+            this.limClRUBLabel.Location = new System.Drawing.Point(629, 373);
+            this.limClRUBLabel.Name = "limClRUBLabel";
+            this.limClRUBLabel.Size = new System.Drawing.Size(41, 17);
+            this.limClRUBLabel.TabIndex = 34;
+            this.limClRUBLabel.Text = "RUB:";
+            // 
+            // limClRUBValue
+            // 
+            this.limClRUBValue.AutoSize = true;
+            this.limClRUBValue.Location = new System.Drawing.Point(689, 373);
+            this.limClRUBValue.Name = "limClRUBValue";
+            this.limClRUBValue.Size = new System.Drawing.Size(54, 17);
+            this.limClRUBValue.TabIndex = 35;
+            this.limClRUBValue.Text = "label19";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(600, 175);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(188, 20);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Лимиты на операцию";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(615, 288);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(147, 20);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Лимиты на день";
+            // 
             // CurrencyExchange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 478);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.limClRUBValue);
+            this.Controls.Add(this.limClRUBLabel);
+            this.Controls.Add(this.limClEURValue);
+            this.Controls.Add(this.limClEURLabel);
+            this.Controls.Add(this.limClUSDValue);
+            this.Controls.Add(this.limClUSDLabel);
+            this.Controls.Add(this.limOpRUBValue);
+            this.Controls.Add(this.limOpRUBLabel);
+            this.Controls.Add(this.limOpEURValue);
+            this.Controls.Add(this.limOpEURLabel);
+            this.Controls.Add(this.limOpUSDValue);
+            this.Controls.Add(this.limOpUSDLabel);
             this.Controls.Add(this.sumLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.userID);
@@ -360,5 +516,19 @@
         private System.Windows.Forms.TextBox userID;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label sumLabel;
+        private System.Windows.Forms.Label limOpUSDLabel;
+        private System.Windows.Forms.Label limOpUSDValue;
+        private System.Windows.Forms.Label limOpEURLabel;
+        private System.Windows.Forms.Label limOpEURValue;
+        private System.Windows.Forms.Label limOpRUBLabel;
+        private System.Windows.Forms.Label limOpRUBValue;
+        private System.Windows.Forms.Label limClUSDLabel;
+        private System.Windows.Forms.Label limClUSDValue;
+        private System.Windows.Forms.Label limClEURLabel;
+        private System.Windows.Forms.Label limClEURValue;
+        private System.Windows.Forms.Label limClRUBLabel;
+        private System.Windows.Forms.Label limClRUBValue;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }
