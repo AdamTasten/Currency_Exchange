@@ -24,6 +24,50 @@ namespace UI
             InitializeComponent();
         }
 
+        private bool CheckDayLimit(string operUserID, DateTime operDate, string operCurrency, double operAmountOfCurrency, string operType)
+        {
+            double sumOfOperations = operAmountOfCurrency;
+            bool flag = false;
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM [Table]", sqlConnection);
+            //try
+            //{
+                sqlReader =  command.ExecuteReader();
+            while (sqlReader.Read())
+            {
+                if (((string)sqlReader["ClientID"]).Equals(operUserID) && ((DateTime)sqlReader["Date"]).Equals(operDate) &&
+                ((string)sqlReader["Currency"]).Equals(operCurrency))//поиск операции, подходящей по айди, дате и валюте
+                {
+                    if (((string)sqlReader["Type"]).Equals("Покупка"))//если тип операции - покупка
+                    {
+                        sumOfOperations += Convert.ToDouble(sqlReader["Got"]);
+                    }
+                    else if (((string)sqlReader["Type"]).Equals("Продажа"))//если тип операции - продажа
+                    {
+                        sumOfOperations += Convert.ToDouble(sqlReader["Given"]);
+                    }
+                }
+                if (sumOfOperations > Convert.ToDouble((string)Settings.Default[operCurrency + "client"]))
+                    {
+                        flag = true;
+                        sumLabel.Text = sumOfOperations.ToString();
+                        break;
+                    }
+            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //finally
+            //{
+                if (sqlReader != null)
+                    sqlReader.Close();
+            //}
+            return flag;
+        }
+
+
         private void button2_Click(object sender, EventArgs e)
         {
             if (sqlConnection != null && sqlConnection.State != ConnectionState.Closed)
@@ -35,6 +79,15 @@ namespace UI
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            double amountOfCurrency;
+            if (type.Equals("Продажа"))
+            {
+                amountOfCurrency = Convert.ToDouble(givenValue.Text);
+            }
+            else
+            {
+                amountOfCurrency = Convert.ToDouble(gotValue.Text);
+            }
             if (label6.Visible) label6.Visible = false;
             if (string.IsNullOrEmpty(clientName.Text) || string.IsNullOrWhiteSpace(clientName.Text) ||
                 string.IsNullOrEmpty(givenValue.Text) || string.IsNullOrWhiteSpace(givenValue.Text)
@@ -43,13 +96,12 @@ namespace UI
                 label6.Visible = true;
                 label6.Text = "Проверьте, чтобы  поля не были пустыми!";
             }
-            else if ((type.Equals("Продажа") && Convert.ToDouble(givenValue.Text) > Convert.ToDouble((string)Settings.Default[currency + "oper"])) ||
-                (type.Equals("Покупка") && Convert.ToDouble(gotValue.Text) > Convert.ToDouble((string)Settings.Default[currency + "oper"])))
+            else if (amountOfCurrency > Convert.ToDouble((string)Settings.Default[currency + "oper"]))//проверка на соответствие лимиту на операцию
             {
                 label6.Visible = true;
                 label6.Text = "Проверьте, чтобы значения валюты соответствовали лимитам на операцию!";
             }
-            else if (false)
+            else if (CheckDayLimit(userID.Text, date, currency, amountOfCurrency, type))//проверка на соответствие дневному лимиту
             {
                 label6.Visible = true;
                 label6.Text = "Вероятно, вы превышаете лимит на день!";
