@@ -17,8 +17,8 @@ namespace UI
         string currency = "USD";
         string type = "Покупка";
         SqlConnection sqlConnection;
-        DateTime date = new DateTime(2020, 12, 4);
-
+        //DateTime date = new DateTime(2020, 12, 4);
+        DateTime date = DateTime.Today; 
         public CurrencyExchange()
         {
             InitializeComponent();
@@ -132,8 +132,11 @@ namespace UI
 
         private async void CurrencyExchange_Load(object sender, EventArgs e)
         {
-            
-            try
+            if ((bool)Settings.Default["isLogged"])
+            {
+                nextDayButton.Visible = true;
+            }
+                try
             {
                 dateBox.Items.Add(date);
             }

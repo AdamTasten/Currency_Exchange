@@ -268,6 +268,7 @@
             this.nextDayButton.TabIndex = 20;
             this.nextDayButton.Text = "Перейти на новый день";
             this.nextDayButton.UseVisualStyleBackColor = true;
+            this.nextDayButton.Visible = false;
             this.nextDayButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // userID
