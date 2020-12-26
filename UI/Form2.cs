@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using UI.Properties;
+using System.IO;
 
 namespace UI
 {
@@ -50,7 +51,7 @@ namespace UI
                 if (sumOfOperations > Convert.ToDouble((string)Settings.Default[operCurrency + "client"]))
                     {
                         flag = true;
-                        sumLabel.Text = sumOfOperations.ToString();
+                        //sumLabel.Text = sumOfOperations.ToString();
                         break;
                     }
             }
@@ -94,7 +95,7 @@ namespace UI
                )
             {
                 label6.Visible = true;
-                label6.Text = "Проверьте, чтобы  поля не были пустыми!";
+                label6.Text = "Проверьте, чтобы поля не были пустыми!";
             }
             else if (amountOfCurrency > Convert.ToDouble((string)Settings.Default[currency + "oper"]))//проверка на соответствие лимиту на операцию
             {
@@ -125,8 +126,20 @@ namespace UI
                 //{
                 //    command.Parameters.AddWithValue("Type", toSellRB.Text);
                 //}
-
                 await command.ExecuteNonQueryAsync();
+
+                StreamWriter sw = new StreamWriter("Transaction.txt");
+                sw.WriteLine(date.ToShortDateString());
+                sw.WriteLine(clientName.Text);
+                sw.WriteLine(userID.Text);
+                sw.WriteLine(cashierName.Text);
+                sw.WriteLine(type);
+                sw.WriteLine(currency);
+                sw.WriteLine("Отдано " + givenValue.Text);
+                sw.WriteLine("Получено " + gotValue.Text);
+                sw.Close();
+                label6.Visible = true;
+                label6.Text = "Операция прошла успешно!";
             }
         }
 

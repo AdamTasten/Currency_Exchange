@@ -51,7 +51,6 @@
             this.nextDayButton = new System.Windows.Forms.Button();
             this.userID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.sumLabel = new System.Windows.Forms.Label();
             this.limOpUSDLabel = new System.Windows.Forms.Label();
             this.limOpUSDValue = new System.Windows.Forms.Label();
             this.limOpEURLabel = new System.Windows.Forms.Label();
@@ -302,15 +301,6 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Идентификатор пользователя";
             // 
-            // sumLabel
-            // 
-            this.sumLabel.AutoSize = true;
-            this.sumLabel.Location = new System.Drawing.Point(75, 250);
-            this.sumLabel.Name = "sumLabel";
-            this.sumLabel.Size = new System.Drawing.Size(46, 17);
-            this.sumLabel.TabIndex = 23;
-            this.sumLabel.Text = "label8";
-            // 
             // limOpUSDLabel
             // 
             this.limOpUSDLabel.AutoSize = true;
@@ -458,7 +448,6 @@
             this.Controls.Add(this.limOpEURLabel);
             this.Controls.Add(this.limOpUSDValue);
             this.Controls.Add(this.limOpUSDLabel);
-            this.Controls.Add(this.sumLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.userID);
             this.Controls.Add(this.nextDayButton);
@@ -515,7 +504,6 @@
         public System.Windows.Forms.TextBox givenValue;
         private System.Windows.Forms.TextBox userID;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label sumLabel;
         private System.Windows.Forms.Label limOpUSDLabel;
         private System.Windows.Forms.Label limOpUSDValue;
         private System.Windows.Forms.Label limOpEURLabel;
